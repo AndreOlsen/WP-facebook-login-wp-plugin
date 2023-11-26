@@ -1,65 +1,58 @@
 <?php
-	/**
-	 * @wordpress-plugin
-	 * Plugin Name:          Easy Facebook Login
-	 * Plugin URI:
-	 * Description:          Lets your users login with facebook.
-	 * Version:              1.0.0
-	 * Author:               YetAnotherWPDev
-	 * Author URI:
-	 * License:              GPL-2.0+
-	 * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
-	 * Text Domain:          easy-facebook-login
-	 * Domain Path:          /languages/
-	 */
+/**
+ * @wordpress-plugin
+ * Plugin Name:      Easy Facebook Login
+ * Description:      Lets your users login with facebook.
+ * Version:          1.0.0
+ * Author:           André Winther Olsen
+ * Author URI:		 https://andreolsen.github.io
+ * Text Domain:      easy-facebook-login
+ * Domain Path:      /languages/
+ */
 
-	// If this file is called directly, abort.
-	if(!defined('WPINC')) die;
+// If this file is called directly, abort.
+if (!defined('WPINC')) die;
 
-	/**
-	 * Activation
-	 *
-	 * @since 1.0.0
-	 */
-	if(!function_exists('easyFacebookLoginActivation')) {
-		function easyFacebookLoginActivation() {
-			require_once \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login-activator.php';
-			EasyFacebookLoginActivator::activate();
-		}
-
-		\register_activation_hook(__FILE__, 'easyFacebookLoginActivation');
+/**
+ * Activation
+ *
+ * @since 1.0.0
+ */
+if (!function_exists('easyFacebookLoginActivation')) {
+	function easyFacebookLoginActivation() {
+		require_once \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login-activator.php';
+		EasyFacebookLoginActivator::activate();
 	}
 
-	/**
-	 * Deactivation
-	 *
-	 * @since 1.0.0
-	 */
-	if(!function_exists('easyFacebookLoginDeactivation')) {
-		function easyFacebookLoginDeactivation() {
-			require_once \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login-deactivator.php';
-			EasyFacebookLoginDeactivator::deactivate();
-		}
+	\register_activation_hook(__FILE__, 'easyFacebookLoginActivation');
+}
 
-		\register_deactivation_hook(__FILE__, 'easyFacebookLoginDeactivation');
+/**
+ * Deactivation
+ *
+ * @since 1.0.0
+ */
+if (!function_exists('easyFacebookLoginDeactivation')) {
+	function easyFacebookLoginDeactivation() {
+		require_once \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login-deactivator.php';
+		EasyFacebookLoginDeactivator::deactivate();
 	}
 
-	/**
-	 * Run plugin
-	 *
-	 * @since 1.0.0
-	 */
-	if(!function_exists('runEasyFacebookLogin')) {
-		require \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login.php';
+	\register_deactivation_hook(__FILE__, 'easyFacebookLoginDeactivation');
+}
 
-		function runEasyFacebookLogin() {
-			$plugin = new EasyFaceookLogin();
-			$plugin->run();
-		}
+/**
+ * Run plugin
+ *
+ * @since 1.0.0
+ */
+if (!function_exists('runEasyFacebookLogin')) {
+	require \plugin_dir_path(__FILE__) . 'includes/class.easy-facebook-login.php';
 
-		runEasyFacebookLogin();
+	function runEasyFacebookLogin() {
+		$plugin = new EasyFaceookLogin();
+		$plugin->run();
 	}
 
-
-
-
+	runEasyFacebookLogin();
+}

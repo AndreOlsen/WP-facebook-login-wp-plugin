@@ -1,10 +1,10 @@
 <?php
-	/**
-	 * @var string|int $app_id
-	 * @var string|int $secret_key
-	 * @var string     $login_id
-	 * @var string     $logout_id
-	 */
+/**
+ * @var string|int $app_id
+ * @var string|int $secret_key
+ * @var string     $login_id
+ * @var string     $logout_id
+ */
 ?>
 
 <div class="wrap">
@@ -12,7 +12,7 @@
 
 	<form method="POST" novalidate="novalidate">
 		<input type="hidden" name="action" value="efl_setting-update">
-		<?php \wp_nonce_field(); ?>
+		<?php wp_nonce_field(); ?>
 
 		<table class="form-table">
 			<tr>
