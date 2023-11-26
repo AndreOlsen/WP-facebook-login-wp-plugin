@@ -1,4 +1,2 @@
-# Facebook Login WP plugin
-WORK IN PROGRESS!
-
-Lets you easily integrate facebook login into your wordpress website.
+# Easy Facebook Login - WordPress Plugin
+WIP
